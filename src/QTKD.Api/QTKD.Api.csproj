@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>01b4786d-9410-472c-b9aa-e94a6b750221</UserSecretsId>
+  </PropertyGroup>
+
+  <!--
+    Version="10.*" nghĩa là lấy bản 10.x mới nhất khi restore.
+    Sau khi restore thành công, có thể ghim phiên bản cụ thể bằng lệnh
+    "dotnet add package" kèm tham số version (xem README).
+  -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.*" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.*" />
+  </ItemGroup>
+
+</Project>

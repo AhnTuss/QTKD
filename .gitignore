@@ -1,0 +1,20 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.idea/
+.vscode/
+TestResults/
+*.trx
+
+## Bí mật / cấu hình cục bộ: KHÔNG đưa lên Git
+appsettings.*.local.json
+secrets.json
+.env
+*.env
+
+## Hệ điều hành
+.DS_Store
+Thumbs.db
