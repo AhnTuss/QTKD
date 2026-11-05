@@ -23,4 +23,6 @@ public class Contract
     public DateOnly? EndDate { get; set; }
 
     public ContractStatus Status { get; set; } = ContractStatus.Draft;
+
+    public List<ContractContent> Contents { get; set; } = new();
 }

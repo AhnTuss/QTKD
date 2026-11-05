@@ -59,6 +59,29 @@ namespace QTKD.Api.Migrations
                     b.ToTable("Contracts");
                 });
 
+            modelBuilder.Entity("QTKD.Api.Entities.ContractContent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ContractId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ContractId");
+
+                    b.ToTable("ContractContents");
+                });
+
             modelBuilder.Entity("QTKD.Api.Entities.Customer", b =>
                 {
                     b.Property<int>("Id")
@@ -132,6 +155,17 @@ namespace QTKD.Api.Migrations
                     b.Navigation("Customer");
                 });
 
+            modelBuilder.Entity("QTKD.Api.Entities.ContractContent", b =>
+                {
+                    b.HasOne("QTKD.Api.Entities.Contract", "Contract")
+                        .WithMany("Contents")
+                        .HasForeignKey("ContractId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Contract");
+                });
+
             modelBuilder.Entity("QTKD.Api.Entities.PriceItem", b =>
                 {
                     b.HasOne("QTKD.Api.Entities.PriceList", "PriceList")
@@ -141,6 +175,11 @@ namespace QTKD.Api.Migrations
                         .IsRequired();
 
                     b.Navigation("PriceList");
+                });
+
+            modelBuilder.Entity("QTKD.Api.Entities.Contract", b =>
+                {
+                    b.Navigation("Contents");
                 });
 
             modelBuilder.Entity("QTKD.Api.Entities.Customer", b =>

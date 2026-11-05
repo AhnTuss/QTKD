@@ -9,4 +9,5 @@ public record ContractDto(
     string CustomerName,
     DateOnly? StartDate,
     DateOnly? EndDate,
-    ContractStatus Status);
+    ContractStatus Status,
+    List<ContractContentDto> Contents);

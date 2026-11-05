@@ -11,6 +11,7 @@ public class QtkdDbContext : DbContext
 
     public DbSet<Customer> Customers => Set<Customer>();
     public DbSet<Contract> Contracts => Set<Contract>();
+    public DbSet<ContractContent> ContractContents => Set<ContractContent>();
     public DbSet<PriceList> PriceLists => Set<PriceList>();
     public DbSet<PriceItem> PriceItems => Set<PriceItem>();
 
@@ -35,6 +36,17 @@ public class QtkdDbContext : DbContext
                 .WithMany(c => c.Contracts)
                 .HasForeignKey(x => x.CustomerId)
                 .OnDelete(DeleteBehavior.Restrict); // không cho xóa Customer đang có hợp đồng
+
+            e.HasMany(x => x.Contents)
+                .WithOne(x => x.Contract)
+                .HasForeignKey(x => x.ContractId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<ContractContent>(e =>
+        {
+            e.HasKey(x => x.Id);
+            e.Property(x => x.Name).IsRequired().HasMaxLength(200);
         });
 
         modelBuilder.Entity<PriceList>(e =>
