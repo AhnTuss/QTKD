@@ -14,6 +14,7 @@ builder.Services.AddDbContext<QtkdDbContext>(options => options.UseNpgsql(connec
 
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IContractService, ContractService>();
+builder.Services.AddScoped<IPriceListService, PriceListService>();
 
 builder.Services
     .AddControllers()

@@ -1,8 +1,8 @@
 # QTKD
 
-Bài thực hành Phase 2, tuần 05. Project dùng ASP.NET Core Web API, Entity Framework Core và PostgreSQL.
+Bài thực hành Phase 2, hiện đã làm tiếp các chức năng tuần 06. Project dùng ASP.NET Core Web API, Entity Framework Core và PostgreSQL.
 
-Hiện tại API đọc được danh sách khách hàng và chi tiết hợp đồng. Dữ liệu mẫu gồm 2 khách hàng, 1 hợp đồng Draft và 1 bảng giá có 2 dịch vụ. Chức năng tạo/sửa dữ liệu và gửi hợp đồng chưa làm trong tuần này.
+API hiện có Customer, Contract, Submit hợp đồng và quản lý PriceList/PriceItem. Các route và giả định CTR-02 được ghi trong [`docs/week06.md`](docs/week06.md). Dữ liệu mẫu được thêm khi database trống.
 
 ## Chạy project
 

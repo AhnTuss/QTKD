@@ -51,6 +51,24 @@ Thêm nội dung rồi gửi:
 
 Phase 1 chưa cung cấp danh sách tài liệu bắt buộc. Bản demo hiện coi một mục có tên trong `ContractContents` là nội dung bắt buộc. API chỉ lưu tên mục, chưa upload hay lưu file. Cần thay giả định này nếu Acceptance Criteria Phase 1 quy định khác.
 
+## PriceList và PriceItem
+
+| Method | Đường dẫn | Kết quả |
+|---|---|---|
+| GET | `/api/pricelists` | Danh sách bảng giá và hạng mục |
+| GET | `/api/pricelists/{id}` | Chi tiết bảng giá; `404` nếu không có |
+| POST | `/api/pricelists` | Tạo bảng giá, trả `201` |
+| GET | `/api/pricelists/{id}/items` | Danh sách hạng mục; `404` nếu bảng giá không có |
+| POST | `/api/pricelists/{id}/items` | Thêm hạng mục, trả `201` |
+
+Giá phải lớn hơn 0. Mỗi ServiceCode chỉ được xuất hiện một lần trong cùng PriceList; mã trùng trả `409`.
+
+Ví dụ thêm hạng mục:
+
+```json
+{"serviceCode":"SVC-CONSULT","unitPrice":1500000}
+```
+
 ## Giới hạn
 
 Submit chỉ chuyển trạng thái sang `PendingApproval`; chưa có bước duyệt, từ chối, thanh toán hay upload file.
