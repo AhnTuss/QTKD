@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QTKD.Api", "src\QTKD.Api\QTKD.Api.csproj", "{41923088-CA83-45B8-91E0-2FC8A1DF3FB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QTKD.Api.Tests", "tests\QTKD.Api.Tests\QTKD.Api.Tests.csproj", "{4BB9F41C-A927-41B4-8E71-68C4AFB7E60D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,18 @@ Global
 		{41923088-CA83-45B8-91E0-2FC8A1DF3FB9}.Release|x64.Build.0 = Release|Any CPU
 		{41923088-CA83-45B8-91E0-2FC8A1DF3FB9}.Release|x86.ActiveCfg = Release|Any CPU
 		{41923088-CA83-45B8-91E0-2FC8A1DF3FB9}.Release|x86.Build.0 = Release|Any CPU
+		{4BB9F41C-A927-41B4-8E71-68C4AFB7E60D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BB9F41C-A927-41B4-8E71-68C4AFB7E60D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BB9F41C-A927-41B4-8E71-68C4AFB7E60D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4BB9F41C-A927-41B4-8E71-68C4AFB7E60D}.Debug|x64.Build.0 = Debug|Any CPU
+		{4BB9F41C-A927-41B4-8E71-68C4AFB7E60D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4BB9F41C-A927-41B4-8E71-68C4AFB7E60D}.Debug|x86.Build.0 = Debug|Any CPU
+		{4BB9F41C-A927-41B4-8E71-68C4AFB7E60D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BB9F41C-A927-41B4-8E71-68C4AFB7E60D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BB9F41C-A927-41B4-8E71-68C4AFB7E60D}.Release|x64.ActiveCfg = Release|Any CPU
+		{4BB9F41C-A927-41B4-8E71-68C4AFB7E60D}.Release|x64.Build.0 = Release|Any CPU
+		{4BB9F41C-A927-41B4-8E71-68C4AFB7E60D}.Release|x86.ActiveCfg = Release|Any CPU
+		{4BB9F41C-A927-41B4-8E71-68C4AFB7E60D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
