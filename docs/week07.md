@@ -21,9 +21,13 @@ dotnet test QTKD.sln
 
 Integration test chạy request qua ASP.NET Core TestServer và SQLite in-memory riêng cho từng test. Database bị hủy khi test kết thúc; PostgreSQL `qtkd` không được truy cập.
 
+## Kiểm tra Pricing bổ sung
+
+Ngoài TC01–TC08, integration test tạo PriceList, thêm và đọc PriceItem; đồng thời xác nhận giá bằng 0 bị từ chối, ServiceCode trùng trả `409`, và DB chỉ lưu một item hợp lệ.
+
 ## Unit test CTR
 
-`ContractRuleTests` kiểm tra sửa được Draft nhưng không được sửa PendingApproval (CTR-01); Submit thành công khi đủ điều kiện và bị từ chối nếu thiếu nội dung, Customer không Active hoặc khoảng ngày sai (CTR-02); Submit chỉ chuyển Draft sang PendingApproval, không sang Approved (CTR-03).
+`ContractRuleTests` có 7 unit tests: sửa được Draft nhưng không được sửa PendingApproval (CTR-01); Submit thành công khi đủ điều kiện và bị từ chối nếu thiếu nội dung, Customer không Active hoặc khoảng ngày sai (CTR-02); Submit chỉ chuyển Draft sang PendingApproval, không sang Approved (CTR-03).
 
 ## Lỗi tìm thấy và sửa
 
