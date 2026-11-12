@@ -32,19 +32,14 @@ Nếu máy chưa có công cụ EF, cài một lần bằng lệnh `dotnet tool 
 
 Khi chạy ở Development, API mở Swagger tại <http://localhost:5080/swagger>. Dữ liệu mẫu được thêm nếu database đã migrate và bảng Customers chưa có dữ liệu.
 
-## API hiện có
+Danh sách API tuần 06 và ví dụ request nằm trong [`docs/week06.md`](docs/week06.md).
 
-| Method | Đường dẫn | Kết quả |
-|---|---|---|
-| GET | `/api/customers` | Danh sách khách hàng |
-| GET | `/api/contracts/{id}` | Thông tin hợp đồng; trả 404 nếu không tìm thấy |
-
-Thử nhanh:
+## Chạy test
 
 ```powershell
-curl.exe http://localhost:5080/api/customers
-curl.exe http://localhost:5080/api/contracts/1
-curl.exe -i http://localhost:5080/api/contracts/999
+dotnet test QTKD.sln
 ```
 
-Migration và cấu hình database nằm trong `src/QTKD.Api`. Tài liệu sơ đồ tuần 05 ở `docs/week05.md`.
+Test API bằng `WebApplicationFactory` và SQLite in-memory riêng cho từng test. Không cần bật PostgreSQL và không dùng database `qtkd` của ứng dụng. Danh sách tình huống cùng kết quả nằm trong [`docs/week07.md`](docs/week07.md).
+
+Migration và cấu hình database nằm trong `src/QTKD.Api`; sơ đồ tuần 05 ở `docs/week05.md`.

@@ -87,6 +87,39 @@ public class ContractRuleTests
     }
 
     [Fact]
+    public async Task Ctr02_SubmitWithInactiveCustomerIsRejectedAndRemainsDraft()
+    {
+        await using var db = CreateDbContext();
+        var contract = await CreateSubmitReadyContractAsync(db);
+        contract.Customer.Status = CustomerStatus.Inactive;
+        db.ContractContents.Add(new ContractContent { ContractId = contract.Id, Name = "Required content" });
+        await db.SaveChangesAsync();
+        var service = new ContractService(db);
+
+        var result = await service.SubmitAsync(contract.Id);
+
+        Assert.Equal(ContractOperationError.CustomerInactive, result.Error);
+        Assert.Equal(ContractStatus.Draft, (await db.Contracts.FindAsync(contract.Id))!.Status);
+    }
+
+    [Fact]
+    public async Task Ctr02_SubmitWithInvalidDateRangeIsRejectedAndRemainsDraft()
+    {
+        await using var db = CreateDbContext();
+        var contract = await CreateSubmitReadyContractAsync(db);
+        contract.StartDate = new DateOnly(2027, 11, 1);
+        contract.EndDate = new DateOnly(2027, 10, 31);
+        db.ContractContents.Add(new ContractContent { ContractId = contract.Id, Name = "Required content" });
+        await db.SaveChangesAsync();
+        var service = new ContractService(db);
+
+        var result = await service.SubmitAsync(contract.Id);
+
+        Assert.Equal(ContractOperationError.InvalidDateRange, result.Error);
+        Assert.Equal(ContractStatus.Draft, (await db.Contracts.FindAsync(contract.Id))!.Status);
+    }
+
+    [Fact]
     public async Task Ctr03_SubmitMovesDraftToPendingApprovalNotApproved()
     {
         await using var db = CreateDbContext();
